@@ -227,7 +227,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: 1 }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -251,7 +251,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
       async ({ customer_id, query, page_size, page_token, login_customer_id }) => {
         assertReadOnlyQuery(query)
         const cid = normalizeCustomerId(customer_id)
-        const body: Record<string, unknown> = { query, pageSize: Math.min(page_size ?? 1000, 10000) }
+        const body: Record<string, unknown> = { query }
         if (page_token) body.pageToken = page_token
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
@@ -318,7 +318,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -370,7 +370,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -410,7 +410,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -462,7 +462,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 1000, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -511,7 +511,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 1000, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -562,7 +562,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -598,7 +598,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -638,7 +638,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/customers/${cid}/googleAds:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
@@ -723,7 +723,7 @@ export class MyMCP extends McpAgent<Env, Record<string, never>, Props> {
         assertReadOnlyQuery(query)
         const data = await this.callGads(`/googleAdsFields:search`, {
           method: 'POST',
-          body: JSON.stringify({ query, pageSize: Math.min(limit ?? 500, 10000) }),
+          body: JSON.stringify({ query }),
           loginCustomerId: login_customer_id,
         })
         return asTextResult(data)
