@@ -1,0 +1,11 @@
+# Local development secrets. Copy this file to .dev.vars and fill in the values.
+# .dev.vars is gitignored, do not commit it.
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+COOKIE_ENCRYPTION_KEY=
+HOSTED_DOMAIN=
+ALLOWED_EMAILS=
+ALLOWED_DOMAINS=
+GADS_DEVELOPER_TOKEN=
+GADS_LOGIN_CUSTOMER_ID=

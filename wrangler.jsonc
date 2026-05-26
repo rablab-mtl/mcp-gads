@@ -1,0 +1,44 @@
+/**
+ * Wrangler configuration for mcp-gads.
+ * Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+ *
+ * Before first deploy, set kv_namespaces[0].id to the ID of a fresh KV
+ * namespace created with: npx wrangler kv namespace create OAUTH_KV
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mcp-gads",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "migrations": [
+    {
+      "new_sqlite_classes": ["MyMCP"],
+      "tag": "v1"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "MyMCP",
+        "name": "MCP_OBJECT"
+      }
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "0f32c33c2e424e10a9c4e5ba3f8f6170"
+    }
+  ],
+  "vars": {
+    "GADS_API_VERSION": "v20",
+    "GADS_LOGIN_CUSTOMER_ID": ""
+  },
+  "observability": {
+    "enabled": true
+  },
+  "dev": {
+    "port": 8789
+  }
+}
